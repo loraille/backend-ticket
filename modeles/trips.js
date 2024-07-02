@@ -8,6 +8,6 @@ const tripsSchema = mongoose.Schema({
 
 });
 
-const Trips = mongoose.model('trips', tripsSchema);
+const Trip = mongoose.model('trips', tripsSchema);
 
-module.exports = Trips;
+module.exports = Trip;
