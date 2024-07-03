@@ -24,16 +24,11 @@ router.post('/cartTrip', (req, res) =>{
 
 
 
-router.delete("/:departure/:arrival/:date/:price", (req, res) => {
-    Cart.deleteOne({ 
-        departure: req.params.departure, 
-        arrival: req.params.arrival, 
-        date: req.params.date, 
-        price: req.params.price
-    })
+router.delete("/:id", (req, res) => {
+    Cart.deleteOne({ _id: req.params.id} )
         .then(data =>{ 
             if (data) {
-                res.json({ message: "yes" })
+                res.json({ message: "yes" , data})
                 // Cart.find().then(data => {
                 // res.json({data : data,  message: 'Supprimer' }); 
                 // })
