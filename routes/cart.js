@@ -17,8 +17,8 @@ router.post('/cartTrip', (req, res) =>{
             price: req.body.price,
         });
         newCart.save()
-        then(newDoc => {
-            res.json({ cart: newDoc });
+        .then(data => {
+            res.json({ data });
         });
 });
 
