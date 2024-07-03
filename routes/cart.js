@@ -22,4 +22,28 @@ router.post('/cartTrip', (req, res) =>{
         });
 });
 
+
+
+router.delete("/:departure/:arrival/:date/:price", (req, res) => {
+    Cart.deleteOne({ 
+        departure: req.params.departure, 
+        arrival: req.params.arrival, 
+        date: req.params.date, 
+        price: req.params.price
+    })
+        .then(data =>{ 
+            if (data) {
+                res.json({ message: "yes" })
+                // Cart.find().then(data => {
+                // res.json({data : data,  message: 'Supprimer' }); 
+                // })
+            } else {
+                res.json({ error: "Try again" });
+            }
+        })
+
+});
+
+
+
 module.exports = router;
