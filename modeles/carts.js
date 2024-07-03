@@ -5,6 +5,7 @@ const cartsSchema = mongoose.Schema({
     arrival: String,
     date: Date,
     price: Number,
+    copyId: String,
 
 });
 
