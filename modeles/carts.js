@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cartsSchema = mongoose.Schema({
     departure: String,
     arrival: String,
-    date: String,
+    date: Date,
     price: Number,
 
 });

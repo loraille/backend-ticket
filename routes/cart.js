@@ -5,7 +5,13 @@ const Cart = require('../modeles/carts')
 
 router.get('/checkCart', (req,res) =>{
     Cart.find()
-    .then(data => res.json({data}))
+    .then(data => {
+        if(data){
+                res.json({data})
+        }else{
+            res.json({error :"Essaie encore"})
+        }
+})
 })
 
 
