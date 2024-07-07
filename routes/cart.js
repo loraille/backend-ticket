@@ -3,26 +3,26 @@ var router = express.Router();
 const moment = require('moment');
 const Cart = require('../modeles/carts')
 
-router.get('/checkCart', (req,res) =>{
+router.get('/checkCart', (req, res) => {
     Cart.find()
-    .then(data => {
-        if(data){
-                res.json({data})
-        }else{
-            res.json({error :"Essaie encore"})
-        }
-})
+        .then(data => {
+            if (data) {
+                res.json({ data })
+            } else {
+                res.json({ error: "Essaie encore" })
+            }
+        })
 })
 
 
-router.post('/cartTrip', (req, res) =>{
-        const newCart = new Cart({
-            departure: req.body.departure,
-            arrival: req.body.arrival,
-            date: req.body.date,
-            price: req.body.price,
-        });
-        newCart.save()
+router.post('/cartTrip', (req, res) => {
+    const newCart = new Cart({
+        departure: req.body.departure,
+        arrival: req.body.arrival,
+        date: req.body.date,
+        price: req.body.price,
+    });
+    newCart.save()
         .then(data => {
             res.json({ data });
         });
@@ -31,10 +31,10 @@ router.post('/cartTrip', (req, res) =>{
 
 
 router.delete("/:id", (req, res) => {
-    Cart.deleteOne({ _id: req.params.id} )
-        .then(data =>{ 
+    Cart.deleteOne({ _id: req.params.id })
+        .then(data => {
             if (data) {
-                res.json({ message: "yes" , data})
+                res.json({ message: "yes", data })
                 // Cart.find().then(data => {
                 // res.json({data : data,  message: 'Supprimer' }); 
                 // })
